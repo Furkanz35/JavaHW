@@ -1,0 +1,44 @@
+package csd;
+
+class App {	
+	public static void main(String [] args)
+	{	
+		Time.testTime();
+		
+	}
+	
+	
+}
+
+
+class Time {
+	
+	public static void testTime() {
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.println("Lütfen total saniye değerini giriniz:");
+		long second = Long.parseLong(kb.nextLine());
+		displayDuration(second);
+		
+		
+	}
+	
+	public static void displayDuration(long second) 
+	{	
+		long hour, minute, second_new;
+		hour = second / 3600;
+		minute = second % 3600 / 60;
+		second_new = second % 3600 % 60;
+	
+		System.out.printf("%d saniye --> ", second);
+		
+		if (hour != 0)
+			System.out.printf(" %d saat ", hour);		
+		if (minute != 0)
+			System.out.printf(" %d dakika", minute);
+		if (second != 0)
+			System.out.printf(" %d saniye ", second_new);			
+	}
+		
+		
+	}
+	
