@@ -1,0 +1,50 @@
+package csd;
+
+class App {	
+	public static void main(String [] args)
+	{	
+			Goldbach.testGoldbach();
+	}
+			
+}
+
+
+class Goldbach {
+	
+	public static void testGoldbach() {
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.printf("Please enter a even value:%n");
+		for(int val = Integer.parseInt(kb.nextLine()); val %2 == 0 || (val < 2); val = Integer.parseInt(kb.nextLine()) ) {
+			displayGoldbach(val);
+		}
+	}
+	
+	public static void displayGoldbach(int val) 
+	{	int i, j;
+		
+		for (i = 1; (i < val); ++i) {
+			for (j = 1; (j < val) && Prime.isprime(i); ++j) {
+						
+						if( Prime.isprime(i) && i + j == val)
+						System.out.printf("%d number: %d + %d Goldbach theorem\n", val, i, j);
+			}
+		}				
+	}
+		
+		
+}
+
+class Prime {
+	
+	public static boolean isprime(int val) 
+	{	if (val == 1 || val == 2)
+			return true;
+		for (int i = 2; i <= val/2; ++i) {
+			if (val % i == 0)
+				return false;			
+		}
+		return true;
+		
+	}
+}
+	
