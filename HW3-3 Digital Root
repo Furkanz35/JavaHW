@@ -1,0 +1,66 @@
+package csd;
+
+class App {
+	
+public static void main(String [] args) 
+{	
+
+		DigitalRoot.digitalRootTest();
+
+}
+
+
+
+class DigitalRoot {
+	
+		
+	public static void digitalRootTest() {
+		java.util.Scanner kv = new java.util.Scanner(System.in);
+		
+	
+		int val = 0;
+		
+		while (true) {
+		System.out.println("Please enter a value to find Digital Root:");
+		val = Integer.parseInt(kv.nextLine());
+		
+		if(val == 0)
+			System.exit(0);
+		
+		System.out.printf("Digital Route number of entered value (%d) is equeal to (%d) %n", val, DigitalRoot.calculateDigitalRoot(val));
+		
+		}
+	}
+		
+		
+	
+	public static int calculateDigitalRoot(int val) {		
+		while (val >= 9) {
+			val = Digit.digitsSum(val);			
+		}
+		
+		return val;
+		}
+	}
+}
+
+
+
+class Digit {
+	
+	public static int digitsSum (int val) 
+	{
+		int digitSum = 0;
+		while (val / 10 != 0) {
+		
+			digitSum += val % 10;
+			val /= 10;
+		}
+		
+		
+		return Math.abs(digitSum + val);
+		
+	}
+	
+	
+}
