@@ -1,0 +1,52 @@
+package csd;
+
+class App {
+	
+public static void main(String [] args) 
+{	
+
+	isPrimeTest.run();
+}
+}
+
+class isPrimeTest {
+	public static void run() 
+	{
+	System.out.println("Isprime test is starting...");	
+	int i = 0;
+	for (; i < 3000000; ++i) {
+		
+		if(Prime.isSuperPrime(i))
+			;		
+	}
+	}
+}
+
+
+class Prime {
+	static int count = 0;
+	public static boolean isSuperPrime(int val) 
+	{	
+		if (isprime(val))
+			++count;
+		
+		if (isprime(count) && isprime(val) ) {
+			System.out.printf("%d. prime value is %d%n", count, val);
+			return true;
+		}
+		
+		return false;
+		
+	}
+	public static boolean isprime(int val) 
+	{	if (val == 0 ||val == 1 )
+			return false;
+		if ( val == 2)
+			return true;
+		for (int i = 2; i <= val/2; ++i) {
+			if (val % i == 0)
+				return false;			
+		}
+		return true;		
+	}
+}
