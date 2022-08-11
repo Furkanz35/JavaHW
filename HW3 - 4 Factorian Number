@@ -1,0 +1,72 @@
+package csd;
+
+class App {
+	
+public static void main(String [] args) 
+{	
+
+	FactorialTest.run();
+	
+}
+
+
+
+}
+
+class FactorialTest {
+	
+	public static void run() 
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.println("This program will find Factorian numbers, Program starting ...");
+		int i = 0;
+		for( ; i < 100000; ++i) {
+			
+			if (NumberUtil.isFactorian(i))
+				System.out.printf("%d value is a factorian number%n", i);
+			
+		}
+	
+	}
+	
+}
+
+class NumberUtil {
+	
+
+	public static int factorial(int n)
+	{
+		int result = 1;		
+		
+		for (int i = 2; i <= n; ++i)
+			result *= i;
+		
+		return result;
+	}
+	
+	public static boolean isFactorian(int val) {
+		int tempVal = val;
+		int factorianSum = 0;
+		if ( tempVal == 1 || tempVal == 2)
+			return true;
+		
+		while (!(tempVal / 10 == 0)) {
+			
+			factorianSum += factorial(tempVal%10);
+			tempVal /= 10;
+			
+			
+		}
+		
+		factorianSum += factorial(tempVal%10);
+
+		if ( factorianSum == val)
+			return true;
+		
+		return false;
+			
+	}
+	
+
+	
+}
