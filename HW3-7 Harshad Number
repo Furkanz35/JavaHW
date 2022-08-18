@@ -1,0 +1,51 @@
+package csd;
+
+
+class App {
+	public static void main(String [] args) 
+	{		
+		DecimalHarshadTest.run();
+	}
+}
+
+class DecimalHarshadTest {
+	
+	public static void run() 
+	{
+		for(int i = 100; i > 0; --i) {
+			
+		if(NumberUtil.isDecimalHarshad(i))
+			System.out.printf("%d is a Harshad number%n", i);
+		else 
+			System.out.printf("%d is not Harshad number%n", i);		
+		}
+	
+	}
+}
+
+class NumberUtil {
+	
+	public static boolean isDecimalHarshad(int val)
+	{
+		if(val % (digitSum(val)) == 0)
+			return true;
+		
+		
+		return false;
+	}
+	
+	public static int digitSum(int val)
+	{
+		int sum = 0;
+		
+		while(val / 10 != 0) {
+			
+			sum += val % 10;
+			val /= 10;		
+		}
+		
+		sum += val;
+		
+		return sum;
+	}
+}
