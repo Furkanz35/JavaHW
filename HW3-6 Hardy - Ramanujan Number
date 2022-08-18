@@ -1,0 +1,43 @@
+package csd;
+
+class App {
+	
+	public static void main(String [] args) {
+	
+	for ( int i = 1000 ; i < 10000 ; ++i) {
+		
+		if(HardyRamanujanNumber.hardyTest(i))
+			System.out.printf("%d is a Hardy - Ramanujan number%n", i);
+		
+	}
+		
+		
+}
+}
+class HardyRamanujanNumber {
+	
+	public static boolean hardyTest(int val) 
+	{	
+		for(int a = 0; a < 1000; ++a)
+			if(a*a*a < 100000)
+			for(int b = 0; b < 1000; ++b)
+				if(b*b*b + a * a * a < 100000)
+				for(int c = 0; c < 1000; ++c)
+					if(c*c*c < 100000)
+					for(int d = 0; d < 1000; ++d)
+						if(d*d*d + c * c * c < 100000)
+					{
+						if ((a != b) && (a != c) && (a != d) && (b != c) && (b != d) && (c != d))
+							if (a * a * a + b * b * b == val && c * c * c + d * d * d == val ) {
+								System.out.printf(" %d %d %d %d ---> ", a, b, c, d);
+								return true;
+							}
+					}
+				
+		
+		
+		return false;
+	}
+	
+	
+}
