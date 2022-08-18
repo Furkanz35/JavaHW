@@ -1,0 +1,59 @@
+package csd;
+
+
+class App {
+	public static void main(String [] args) 
+	{		
+		NumberUtil.func();
+	}
+	
+}
+
+class NumberUtil {
+	
+public static void func() {
+	java.util.Scanner kv = new java.util.Scanner(System.in);
+	int min = 100;
+	int max = 0;
+	int count = 0;
+	int sum = 0;
+	int mean = 0;
+	int val; 
+	
+	
+	while(true) {
+	System.out.printf("Yeni bir değer girmek istiyor musunuz? [Evet için 1(bir) Hayır için 0(sıfır) değerlerinden birini giriniz] %n");
+	int choice = Integer.parseInt(kv.nextLine());
+	
+	if(choice == 0) {
+		System.out.printf("Toplam %d değer girildi"
+				+ "%nMax = %d"
+				+ "%nMin = %d"
+				+ "%nOrtalama = %d", count, max, min, mean);
+		System.exit(0);
+	}
+	
+	if(choice != 1) {
+		System.out.println("Yanlış bir seçim yaptınız lütfen tekrar deneyiniz:");
+		continue;
+	}
+	
+	System.out.println("Bir sayı giriniz:");
+	
+	
+	for(val = Integer.parseInt(kv.nextLine()); val > 100 || val < 0 ; System.out.println("Yanlış sayı girişi yaptınız, tekrar yeni bir değer giriniz:")
+			, val = Integer.parseInt(kv.nextLine()))
+		;
+	max = Math.max(max, val);
+	min = Math.min(min, val);
+	++count;
+	sum += val;
+	mean = sum / count;
+	}
+}
+	
+}
+
+
+
+
