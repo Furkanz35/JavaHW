@@ -1,0 +1,41 @@
+package csd;
+
+
+class App {
+	public static void main(String [] args) 
+	{		
+		Collatz.printCollatz(5);
+	}
+}
+
+class Collatz {
+	
+	public static void printCollatz(int val)
+	{
+		System.out.printf("%d %n", val);
+		
+		while(val != 1) {
+			
+			if (val % 2 == 0 && val != 1) {
+				
+				val /= 2;
+				System.out.printf("%d %n", val);
+				
+			}
+			
+			if (val % 2 != 0 && val != 1) {
+				
+				val = 3 * val + 1;
+				System.out.printf("%d %n", val);
+				
+			}
+			
+			if(val == 1)
+				break;
+		}
+		
+
+	}
+	
+}
+
