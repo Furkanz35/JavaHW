@@ -1,0 +1,20 @@
+package csd;
+
+class App {	
+	public static void main(String [] args)
+	{	java.util.Scanner inp = new java.util.Scanner(System.in);
+		String str = inp.nextLine();
+		StringUtil.run(str);
+	}
+}
+
+class StringUtil {
+	
+	public static void run(String str) 
+	{
+		System.out.println('(' + str.trim() + ')' );
+		
+		}
+		
+}
+	
