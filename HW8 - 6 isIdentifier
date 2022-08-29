@@ -1,0 +1,64 @@
+package csd;
+
+class App {
+	
+	
+	public static void main(String [] args) {
+		
+		StringUtil.run();
+	}
+	
+}
+
+class StringUtil {
+	
+	public static void run()
+		{
+			java.util.Scanner inp = new java.util.Scanner(System.in);
+			String str1;
+			String str2;
+			
+			for(;;) {
+				
+				System.out.println("Bir identifier giriniz:");
+				str1 = inp.nextLine();
+				if(str1.equals("çıkış"))
+					break;
+				
+				
+				System.out.println(isIdentifier(str1));
+				
+			}
+			
+			
+		}
+	public static boolean isIdentifier(String str) 
+	{
+		if((!isFirstCharNumber(str)) && isIncludeCorrectAtoms(str))
+			return true;
+		return false;
+	}
+	public static boolean isFirstCharNumber(String str) {
+		return Character.isDigit(str.charAt(0)) ? true : false;
+	}
+	
+	public static boolean isIncludeCorrectAtoms(String str) {
+		
+		int count = 0;
+		for(int i = 0; i < str.length(); ++i) {
+			
+			if(Character.isWhitespace(str.charAt(i)))
+				return false;
+			
+			if (Character.isAlphabetic(str.charAt(i)) || Character.isDigit(str.charAt(i)) || (str.charAt(i) == ('_')
+				|| str.charAt(i) == '$'	))
+				count++;
+		}
+		
+		if( count == str.length())
+			return true;
+		return false;
+	}
+
+	
+}
