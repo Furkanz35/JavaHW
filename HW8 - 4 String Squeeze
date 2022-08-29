@@ -1,0 +1,60 @@
+package csd;
+
+class App {
+	
+	
+	public static void main(String [] args) {
+		
+		StringUtil.run();
+	}
+	
+}
+
+class StringUtil {
+	
+	public static void run()
+		{
+			java.util.Scanner inp = new java.util.Scanner(System.in);
+			String str1;
+			String str2;
+			
+			for(;;) {
+				
+				System.out.println("Birinci yazıyı giriniz:");
+				str1 = inp.nextLine();
+				if(str1.equals("çıkış"))
+					break;
+				
+				System.out.println("İkinci yazıyı giriniz:");
+				str2 = inp.nextLine();
+				
+				System.out.println(squeeze(str1, str2));
+				
+			}
+			
+			
+		}
+		
+	public static String squeeze(String str1, String str2)
+		{
+			for(int i = 0; i < str2.length(); ++i) {
+				
+				
+				while(str1.indexOf(str2.charAt(i)) != -1) {
+					
+					
+					str1 = str1.substring(0, str1.indexOf(str2.charAt(i))) + str1.substring(str1.indexOf(str2.charAt(i)) + 1);
+					
+				}
+				
+			}
+			
+			return str1;
+		}
+
+
+	
+	
+	
+	
+}
